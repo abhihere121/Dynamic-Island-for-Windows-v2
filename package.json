@@ -1,0 +1,32 @@
+{
+  "name": "dynamic-island-win",
+  "version": "0.1.0",
+  "description": "A hover-to-reveal Dynamic Island for the Windows desktop",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "icon": "node scripts/make-icon.js",
+    "dist": "electron-builder --win nsis",
+    "test": "node scripts/test-services.js && node scripts/test-claude.js && node scripts/test-timers.js && node scripts/test-bluetooth.js"
+  },
+  "build": {
+    "appId": "in.carrypro.dynamicisland",
+    "productName": "Dynamic Island",
+    "files": [
+      "src/**/*",
+      "assets/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.png"
+    }
+  },
+  "dependencies": {
+    "node-ical": "^0.20.1"
+  },
+  "devDependencies": {
+    "electron": "^37.0.0",
+    "electron-builder": "^26.0.0",
+    "lucide-static": "^1.61.0"
+  }
+}
